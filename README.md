@@ -1,7 +1,3 @@
-# Project Folders
-
-This repository contains the following project folders:
-
 ## [src](src/README.md)
 
 Directory with PACT tracker.
