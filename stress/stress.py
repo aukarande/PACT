@@ -21,7 +21,7 @@ events_groups = [['MIGRATIONS'],['FAULTS'],['CACHE-MISSES'],['CYCLES']]
 @PACT(measure_period=measure_period, perf_measure_period = perf_measure_period, events_groups = events_groups, tracker_file_name = resultDir + "/" + tracker_file_name)
 def my_function(perfFileName, stressArgs):
 
-    if "base" in perfFileName:
+    if "idle" in perfFileName:
         sleepTime = stressArgs[0]
         stressArgs = ["sleep", sleepTime]
     

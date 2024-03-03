@@ -1,9 +1,9 @@
 name,trial#,cmd
-base_200,1,200
-base_200,2,200
-base_200,3,200
-base_200,4,200
-base_200,5,200
+idle_200,1,200
+idle_200,2,200
+idle_200,3,200
+idle_200,4,200
+idle_200,5,200
 cpu_1_200,1,stress --cpu 1 --timeout 200
 cpu_1_200,2,stress --cpu 1 --timeout 200
 cpu_1_200,3,stress --cpu 1 --timeout 200

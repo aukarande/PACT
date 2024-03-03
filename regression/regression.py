@@ -9,6 +9,7 @@ from tabulate import tabulate
 from sklearn.metrics import mean_absolute_percentage_error, r2_score
 import os
 
+PSUEfficiency = 92 #% efficiency
 perfCounterMeasurePeriod = 0.01 #seconds
 
 # Result Folder
@@ -259,10 +260,10 @@ def printTestDataStats(dataDicts, fileOrder):
             allStatsDict['PTotalTest(mape)'] = mean_absolute_percentage_error(outputsPTotal, predsPTotal)
             allStatsDict['PTotalTest(wmape)'] = wmape(outputsPTotal, predsPTotal)
 
-            allStatsDict['actualEnergy(kWh)'] = sum((1/0.92)*durations[i]*outputsPTotal[i] for i in range(len(durations)))[0] * 0.00000027778
+            allStatsDict['actualEnergy(kWh)'] = sum((100/PSUEfficiency)*durations[i]*outputsPTotal[i] for i in range(len(durations)))[0] * 0.00000027778
             allStatsDict['actualCC(gCO₂eq)'] = allStatsDict['actualEnergy(kWh)'] * carbonIntensity
 
-            allStatsDict['predEnergy(kWh)'] = sum((1/0.92)*durations[i]*predsPTotal[i] for i in range(len(durations)))[0] * 0.00000027778
+            allStatsDict['predEnergy(kWh)'] = sum((100/PSUEfficiency)*durations[i]*predsPTotal[i] for i in range(len(durations)))[0] * 0.00000027778
             allStatsDict['predCC(gCO₂eq)'] = allStatsDict['predEnergy(kWh)'] * carbonIntensity            
 
             testDataAllStatsDF = testDataAllStatsDF.append(allStatsDict, ignore_index=True)
