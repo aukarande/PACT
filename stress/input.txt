@@ -1,0 +1,71 @@
+name,trial#,cmd
+base_200,1,200
+base_200,2,200
+base_200,3,200
+base_200,4,200
+base_200,5,200
+cpu_1_200,1,stress --cpu 1 --timeout 200
+cpu_1_200,2,stress --cpu 1 --timeout 200
+cpu_1_200,3,stress --cpu 1 --timeout 200
+cpu_1_200,4,stress --cpu 1 --timeout 200
+cpu_1_200,5,stress --cpu 1 --timeout 200
+io_1_200,1,stress --io 1 --timeout 200
+io_1_200,2,stress --io 1 --timeout 200
+io_1_200,3,stress --io 1 --timeout 200
+io_1_200,4,stress --io 1 --timeout 200
+io_1_200,5,stress --io 1 --timeout 200
+vm_1_200,1,stress --vm 1 --timeout 200
+vm_1_200,2,stress --vm 1 --timeout 200
+vm_1_200,3,stress --vm 1 --timeout 200
+vm_1_200,4,stress --vm 1 --timeout 200
+vm_1_200,5,stress --vm 1 --timeout 200
+hdd_1_200,1,stress --hdd 1 --timeout 200
+hdd_1_200,2,stress --hdd 1 --timeout 200
+hdd_1_200,3,stress --hdd 1 --timeout 200
+hdd_1_200,4,stress --hdd 1 --timeout 200
+hdd_1_200,5,stress --hdd 1 --timeout 200
+cpu_25_200,1,stress --cpu 25 --timeout 200
+cpu_25_200,2,stress --cpu 25 --timeout 200
+cpu_25_200,3,stress --cpu 25 --timeout 200
+cpu_25_200,4,stress --cpu 25 --timeout 200
+cpu_25_200,5,stress --cpu 25 --timeout 200
+io_25_200,1,stress --io 25 --timeout 200
+io_25_200,2,stress --io 25 --timeout 200
+io_25_200,3,stress --io 25 --timeout 200
+io_25_200,4,stress --io 25 --timeout 200
+io_25_200,5,stress --io 25 --timeout 200
+vm_25_200,1,stress --vm 25 --timeout 200
+vm_25_200,2,stress --vm 25 --timeout 200
+vm_25_200,3,stress --vm 25 --timeout 200
+vm_25_200,4,stress --vm 25 --timeout 200
+vm_25_200,5,stress --vm 25 --timeout 200
+hdd_25_200,1,stress --hdd 25 --timeout 200
+hdd_25_200,2,stress --hdd 25 --timeout 200
+hdd_25_200,3,stress --hdd 25 --timeout 200
+hdd_25_200,4,stress --hdd 25 --timeout 200
+hdd_25_200,5,stress --hdd 25 --timeout 200
+cpu_50_200,1,stress --cpu 50 --timeout 200
+cpu_50_200,2,stress --cpu 50 --timeout 200
+cpu_50_200,3,stress --cpu 50 --timeout 200
+cpu_50_200,4,stress --cpu 50 --timeout 200
+cpu_50_200,5,stress --cpu 50 --timeout 200
+io_50_200,1,stress --io 50 --timeout 200
+io_50_200,2,stress --io 50 --timeout 200
+io_50_200,3,stress --io 50 --timeout 200
+io_50_200,4,stress --io 50 --timeout 200
+io_50_200,5,stress --io 50 --timeout 200
+vm_50_200,1,stress --vm 50 --timeout 200
+vm_50_200,2,stress --vm 50 --timeout 200
+vm_50_200,3,stress --vm 50 --timeout 200
+vm_50_200,4,stress --vm 50 --timeout 200
+vm_50_200,5,stress --vm 50 --timeout 200
+hdd_50_200,1,stress --hdd 50 --timeout 200
+hdd_50_200,2,stress --hdd 50 --timeout 200
+hdd_50_200,3,stress --hdd 50 --timeout 200
+hdd_50_200,4,stress --hdd 50 --timeout 200
+hdd_50_200,5,stress --hdd 50 --timeout 200
+gpu_200,1,./gpu_burn 200
+gpu_200,2,./gpu_burn 200
+gpu_200,3,./gpu_burn 200
+gpu_200,4,./gpu_burn 200
+gpu_200,5,./gpu_burn 200

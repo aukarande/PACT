@@ -1,0 +1,3 @@
+Model: distilbert-base-uncased
+Label Encoding: [0 1]-->[0 1]
+shape of the train set: (7690, 3) 
