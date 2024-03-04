@@ -1,4 +1,10 @@
-## Package Requirement
+## Packages Required by Tracker
+```shell
+liquidctl: https://github.com/liquidctl/liquidctl.git
+perfmon: https://github.com/VitorRamos/performance_features.git
+pynvml: https://pypi.org/project/pynvml/
+```
+- 
 
 ## Track Power and Performance Metrics
 
