@@ -4,7 +4,7 @@ Directory with PACT tracker.
 
 ## [stress](stress/README.md)
 
-Stress Tests containing idle, cpu, vm, io, hdd, and GPU.
+Stress Tests.
 
 ## [CV](CV/README.md)
 

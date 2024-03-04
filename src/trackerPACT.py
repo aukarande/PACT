@@ -1,10 +1,7 @@
 import os
 import time
-import platform
 import pandas as pd
-import numpy as np
 import uuid
-import warnings
 import psutil
 import tzlocal
 from typing import Callable, Optional
@@ -12,23 +9,14 @@ from functools import wraps
 from apscheduler.schedulers.background import BackgroundScheduler
 from liquidctl import find_liquidctl_devices
 import pynvml
-import csv
 import sys
-from typing import Dict, Tuple
+from typing import Dict
 from rapl import RAPLFile
 from units import Time
 import re
 import perfmon
-import time, struct, os, signal, fcntl
+import time, struct, os, fcntl
 import multiprocessing
-
-# (NZXT_850), (Corsair_1500i)
-PSU = "NZXT_850"
-
-if PSU == "NZXT_850":
-    PSUDictLiquidCTL = {"_12V_peripherals_power" : 5, "_12V_EPS_ATX12V_power" : 8, "_12V_motherboard_PCIE_power" : 11, "_5V_combined_power" : 14, "_3_3V_combined_power" : 17}
-elif PSU == "Corsair_1500i":
-    PSUDictLiquidCTL = {"_total_power" : -3}
 
 FROM_mWATTS_TO_kWATTH = 1000*1000*3600
 FROM_kWATTH_TO_MWATTH = 1000
@@ -65,6 +53,8 @@ class LIQUIDCTL():
         self,
         measure_period = 0.5,
         events_groups = [['MIGRATIONS'],['FAULTS'],['CACHE-MISSES'],['CYCLES']],
+        PSU = "",
+        PSUDictLiquidCTL = {},
         perf_measure_period = 0.01
         ):
         """
@@ -84,6 +74,8 @@ class LIQUIDCTL():
         self._perf_measure_period = perf_measure_period
         self._start = time.time()
         self._rapl_time = time.time()
+        self._PSU = PSU
+        self._PSUDictLiquidCTL = PSUDictLiquidCTL
         devices = find_liquidctl_devices()
         for dev in devices:
 
@@ -210,10 +202,10 @@ class LIQUIDCTL():
         status = self._device.get_status()
         post_cpu_power = float(self.cpu_power())
         post_gpu_power = sum([gpuPower / 1000 for gpuPower in self.get_gpu_power()])   
-        if PSU == "NZXT_850":
-            self._psu_power = float(status[PSUDictLiquidCTL['_12V_peripherals_power']][1]) + float(status[PSUDictLiquidCTL['_12V_EPS_ATX12V_power']][1]) + float(status[PSUDictLiquidCTL['_12V_motherboard_PCIE_power']][1]) + float(status[PSUDictLiquidCTL['_5V_combined_power']][1]) + float(status[PSUDictLiquidCTL['_3_3V_combined_power']][1]) #hero
-        elif PSU == "Corsair_1500i":
-            self._psu_power = float(status[PSUDictLiquidCTL['_total_power']][1])
+        if self._PSU == "NZXT_850":
+            self._psu_power = float(status[self._PSUDictLiquidCTL['_12V_peripherals_power']][1]) + float(status[self._PSUDictLiquidCTL['_12V_EPS_ATX12V_power']][1]) + float(status[self._PSUDictLiquidCTL['_12V_motherboard_PCIE_power']][1]) + float(status[self._PSUDictLiquidCTL['_5V_combined_power']][1]) + float(status[self._PSUDictLiquidCTL['_3_3V_combined_power']][1])
+        elif self._PSU == "Corsair_1500i":
+            self._psu_power = float(status[self._PSUDictLiquidCTL['_total_power']][1])
         self._rapl_power = (pre_cpu_power + post_cpu_power)/2
         self._nvml_power = (pre_gpu_power + post_gpu_power)/2
         
@@ -522,7 +514,8 @@ class Tracker:
         tracker_file_name = "PACT.csv",
         measure_period=10,
         perf_measure_period = 0.01,
-        events_groups = [['MIGRATIONS'],['FAULTS'],['CACHE-MISSES'],['CYCLES']]
+        events_groups = [['MIGRATIONS'],['FAULTS'],['CACHE-MISSES'],['CYCLES']],
+        PSU = "Corsair_1500i",
         ):
         if (type(measure_period) == int or type(measure_period) == float) and measure_period <= 0:
             raise ValueError("\'measure_period\' should be positive number")
@@ -538,6 +531,11 @@ class Tracker:
         self.data_dicts = []
         self.data_dict = {}
         self._mode = "first_time"
+        self._PSU = PSU
+        if self._PSU == "NZXT_850":
+            self._PSUDictLiquidCTL = {"_12V_peripherals_power" : 5, "_12V_EPS_ATX12V_power" : 8, "_12V_motherboard_PCIE_power" : 11, "_5V_combined_power" : 14, "_3_3V_combined_power" : 17}
+        elif self._PSU == "Corsair_1500i":
+            self._PSUDictLiquidCTL = {"_total_power" : -3}
 
     def consumption(self):
         return self._consumption
@@ -610,7 +608,7 @@ class Tracker:
             except:
                 pass
             self._scheduler = BackgroundScheduler(job_defaults={'max_instances': 10}, misfire_grace_time=None)
-        self._liquidCTL = LIQUIDCTL(measure_period=self._measure_period, perf_measure_period=self._perf_measure_period, events_groups = self._events_groups)
+        self._liquidCTL = LIQUIDCTL(measure_period=self._measure_period, perf_measure_period=self._perf_measure_period, events_groups = self._events_groups, PSU = self._PSU, PSUDictLiquidCTL = self._PSUDictLiquidCTL)
         self._id = str(uuid.uuid4())
         self._start_time = time.time()
         self._scheduler.add_job(self._func_for_sched, "interval", seconds=self._measure_period, id="job")
@@ -634,11 +632,12 @@ def PACT(
     perf_measure_period: Optional[float] = 0.01,
     events_groups:  Optional[list] = [['MIGRATIONS'],['FAULTS'],['CACHE-MISSES'],['CYCLES']],
     tracker_file_name: Optional[str] = "PACT.csv",
+    PSU: Optional[str] = "Corsair_1500i", # (NZXT_850), (Corsair_1500i)
 ):    
     def _decorate(fn: Callable):
         @wraps(fn)
         def wrapped_fn(*args, **kwargs):
-            tracker = Tracker(measure_period = measure_period, perf_measure_period = perf_measure_period, events_groups=events_groups, tracker_file_name = tracker_file_name)
+            tracker = Tracker(measure_period = measure_period, perf_measure_period = perf_measure_period, events_groups=events_groups, tracker_file_name = tracker_file_name, PSU = PSU)
             tracker.start()
             try:
                 returned = fn(*args, **kwargs)
