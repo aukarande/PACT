@@ -1,4 +1,4 @@
-### How to track carbon emissions of a function in your Python code
+### Track power and performance metrics of your function:
 
 ```python
 currentDir = os.path.dirname(os.path.realpath(__file__))
