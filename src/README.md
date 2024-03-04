@@ -2,8 +2,7 @@
 
 1) **liquidctl**: https://github.com/liquidctl/liquidctl.git
 2) **perfmon**: https://github.com/VitorRamos/performance_features.git
-
-**pynvml**: https://pypi.org/project/pynvml/
+3) **pynvml**: https://pypi.org/project/pynvml/
 
 
 ## Track Power and Performance Metrics
