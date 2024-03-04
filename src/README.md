@@ -1,4 +1,4 @@
-## Track Power and Performance Metrics:
+## Track Power and Performance Metrics
 
 ```python
 currentDir = os.path.dirname(os.path.realpath(__file__))
