@@ -1,4 +1,4 @@
-## Track power and performance metrics of your function
+## Track Power and Performance Metrics:
 
 ```python
 currentDir = os.path.dirname(os.path.realpath(__file__))
