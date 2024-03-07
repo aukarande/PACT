@@ -1,34 +1,28 @@
-![banner](docs/edit/images/banner.png)
+![banner](src/Banner.png)
 
-Estimate and track carbon emissions from your computer, quantify and analyze their impact.
+Accurate Energy and Carbon Footprint Tracking.
 
-- [About CodeCarbon 💡](#about-codecarbon-)
-- [Quickstart 🚀](#quickstart-)
-    - [Installation 🔧](#installation-)
-    - [Start to estimate your impact 📏](#start-to-estimate-your-impact-)
-      - [Monitoring your whole machine](#monitoring-your-machine-)
-      - [In your python code](#in-your-python-code-)
+- [About PACT ](#about-codecarbon-)
+- [Quickstart ](#quickstart-)
+    - [Installation ](#installation-)
+    - [Estimate Carbon Emission ](#start-to-estimate-your-impact-)
+- [Workloads ](#workloads-)
+    - [Stress Tests ](#stress-tests-)
+    - [Computer Vision Benchmarks ](#cv-bm-)
+    - [Natural Language Processing Benchmarks ](#nlp-bm-)
+    - [Reinforcement Learning Benchmarks ](#rl-bm-)
 
-## [src](src/README.md)
+# About PACT
 
-Directory with PACT tracker.
+# Quickstart
 
-## [stress](stress/README.md)
+## Installation
 
-Stress Tests.
+## Estimate Carbon Emission
 
-## [CV](CV/README.md)
+# Workloads
 
-Computer Vision benchmarks.
-
-## [NLP](NLP/README.md)
-
-Natural Language Processing benchmarks.
-
-## [RL](RL/README.md)
-
-Reinforcement Learning Benchmarks.
-
-## [regression](regression/README.md)
-
-Scripts to perform regression.
+## Stress Tests
+## Computer Vision Benchmarks
+## Natural Language Processing Benchmarks
+## Reinforcement Learning Benchmarks
