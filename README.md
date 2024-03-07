@@ -1,3 +1,14 @@
+![banner](docs/edit/images/banner.png)
+
+Estimate and track carbon emissions from your computer, quantify and analyze their impact.
+
+- [About CodeCarbon 💡](#about-codecarbon-)
+- [Quickstart 🚀](#quickstart-)
+    - [Installation 🔧](#installation-)
+    - [Start to estimate your impact 📏](#start-to-estimate-your-impact-)
+      - [Monitoring your whole machine](#monitoring-your-machine-)
+      - [In your python code](#in-your-python-code-)
+
 ## [src](src/README.md)
 
 Directory with PACT tracker.
