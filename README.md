@@ -70,8 +70,18 @@ GPU Tests
 ```
 
 ## Computer Vision Benchmarks
-
 **Source Repository**: https://github.com/kuangliu/pytorch-cifar
 
+Applied our tracker to training script in the above repo, and collected emissions and performance metrics while training DenseNet, VGG, ResNet, and MobileNet on CIFAR10 classification task.
+
 ## Natural Language Processing Benchmarks
+
+**Source Repository**: https://github.com/aminbigdeli/Text-Classification-using-Transformers
+
+Applied our tracker to training script in the above repo, and collected emissions and performance metrics while fine-tuning bert models on SST-2 classification task.
+
 ## Reinforcement Learning Benchmarks
+
+**Source Repository**: https://github.com/denisyarats/pytorch_sac
+
+Applied our tracker to training script in the above repo, and collected emissions and performance metrics while training the agent in cheetah-run, finger-turn-hard, humanoid-run, and quadruped-run environments.
