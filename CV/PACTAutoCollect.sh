@@ -1,11 +1,6 @@
 #!/bin/bash
 
-# Load modules
-module load gcc/11.1.0
-module load anaconda/3/2019.03
-module load cuda/11.8
-
-# Source conda env
+# Activate conda env
 source activate PACT
 
 result_path=./PACTData
