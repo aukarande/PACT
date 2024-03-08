@@ -19,7 +19,7 @@
 
 ## Installation
 
-Add PACT tracker to your python script (/src/PACT.py):
+Add PACT tracker to your python script (/src/trackerPACT.py):
 
 ```python
 currentDir = os.path.dirname(os.path.realpath(__file__))
