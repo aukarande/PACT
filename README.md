@@ -52,14 +52,26 @@ PACT was evaluated by subjecting it to various workloads, including stress tests
 
 ## Stress Tests
 
-We put pressure on various hardware components using the following tools:
+We stressed various hardware components using the following tools:
 
-### Tools Required:
+#### Tools Required:
+1) **sleep**: https://man7.org/linux/man-pages/man3/sleep.3.html
+```
+Idle Test
+```
+2) **stress**: https://linux.die.net/man/1/stress
+```
+CPU, File IO, Virtual Memory (VM), and HDD Tests
+```
 
-    1) **stress**: https://linux.die.net/man/1/stress
-    2) **gpu-burn** https://github.com/wilicc/gpu-burn
-
+3) **gpu-burn** https://github.com/wilicc/gpu-burn
+```
+GPU Tests
+```
 
 ## Computer Vision Benchmarks
+
+**Source Repository**: https://github.com/kuangliu/pytorch-cifar
+
 ## Natural Language Processing Benchmarks
 ## Reinforcement Learning Benchmarks
