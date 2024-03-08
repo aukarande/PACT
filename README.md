@@ -52,11 +52,12 @@ PACT was evaluated by subjecting it to various workloads, including stress tests
 
 ## Stress Tests
 
+We put pressure on various hardware components using the following tools:
 
 ### Tools Required:
 
-    1) **stress**: https://linux.die.net/man/1/stress
-    2) **gpu-burn** https://github.com/wilicc/gpu-burn
+**stress**: https://linux.die.net/man/1/stress
+**gpu-burn** https://github.com/wilicc/gpu-burn
 
 
 ## Computer Vision Benchmarks
