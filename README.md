@@ -33,7 +33,7 @@ from trackerPACT import PACT
 ```python
 events_groups = [['MIGRATIONS'],['FAULTS'],['CACHE-MISSES'],['CYCLES']]
 
-@PACT(measure_period=1, perf_measure_period = 0.01, events_groups = events_groups, tracker_file_name = "./PACT.csv", PSU = "Corsair_1500i")
+@PACT(measure_period = 1, perf_measure_period = 0.01, events_groups = events_groups, tracker_file_name = "./PACT.csv", PSU = "Corsair_1500i")
 def your_function():
   # your code
   ```
