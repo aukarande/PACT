@@ -1,7 +1,5 @@
 ![banner](src/Banner1.jpg)
 
-Accurate Energy and Carbon Footprint Tracking.
-
 - [About PACT ](#about-codecarbon-)
 - [Quickstart ](#quickstart-)
     - [Installation ](#installation-)
@@ -14,13 +12,39 @@ Accurate Energy and Carbon Footprint Tracking.
 
 # About PACT
 
-PACT offers a methodology for accurately analyzing power consumption and tracking carbon emissions of a specific hardware setup. By utilizing PACT, we can make informed decisions aimed at optimizing energy efficiency, minimizing carbon footprints, and advancing toward a greener future.
+**PACT** offers a methodology for accurately analyzing power consumption and tracking carbon emissions of a specific hardware setup. By utilizing PACT, we can make informed decisions aimed at optimizing energy efficiency, minimizing carbon footprints, and advancing toward a greener future.
+
 
 # Quickstart
 
 ## Installation
 
+Add PACT tracker to your python script:
+
+```python
+currentDir = os.path.dirname(os.path.realpath(__file__))
+parentDir = os.path.abspath(os.path.join(currentDir, os.pardir))
+sys.path.append(os.path.join(parentDir, "src"))
+from trackerPACT import PACT
+```
+
 ## Estimate Carbon Emission
+
+```python
+events_groups = [['MIGRATIONS'],['FAULTS'],['CACHE-MISSES'],['CYCLES']]
+
+@PACT(measure_period=1, perf_measure_period = 0.01, events_groups = events_groups, tracker_file_name = "./PACT.csv", PSU = "Corsair_1500i")
+def your_function():
+  # your code
+  ```
+
+- `measure_period`: Specify the sampling period (in seconds) to measure power.
+- `perf_measure_period`: Specify the sampling period (in seconds) to collect performance counter data.
+- `events_groups`: Specify the performance events to monitor during execution.
+- `tracker_file_name`: Specify the name of the file to store tracking data.
+- `PSU`: Specify the power supply unit being used for measurement. Current support for 'Corsair_1500i' and 'NZXT_850'.
+
+PACT monitors emissions generated and performance metrics during the execution of your function.
 
 # Workloads
 
