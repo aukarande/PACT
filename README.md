@@ -14,6 +14,8 @@ Accurate Energy and Carbon Footprint Tracking.
 
 # About PACT
 
+PACT offers a methodology for accurately analyzing power consumption and tracking carbon emissions of a specific hardware setup. By utilizing PACT, we can make informed decisions aimed at optimizing energy efficiency, minimizing carbon footprints, and advancing toward a greener future.
+
 # Quickstart
 
 ## Installation
