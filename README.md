@@ -1,4 +1,4 @@
-![banner](src/Banner.png)
+![banner](src/Banner1.jpg)
 
 Accurate Energy and Carbon Footprint Tracking.
 
