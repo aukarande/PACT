@@ -69,18 +69,18 @@ CPU, File IO, Virtual Memory (VM), and HDD Tests
 GPU Tests
 ```
 
-## Computer Vision Benchmarks
+## [Computer Vision Benchmarks](CV)
 **Source Repository**: https://github.com/kuangliu/pytorch-cifar
 
 Applied our tracker to training script in the above repo, and collected emissions and performance metrics while training DenseNet, VGG, ResNet, and MobileNet on CIFAR10 classification task.
 
-## Natural Language Processing Benchmarks
+## [Natural Language Processing Benchmarks](NLP)
 
 **Source Repository**: https://github.com/aminbigdeli/Text-Classification-using-Transformers
 
 Applied our tracker to training script in the above repo, and collected emissions and performance metrics while fine-tuning bert models on SST-2 classification task.
 
-## Reinforcement Learning Benchmarks
+## [Reinforcement Learning Benchmarks](RL)
 
 **Source Repository**: https://github.com/denisyarats/pytorch_sac
 
