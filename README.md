@@ -48,6 +48,8 @@ PACT monitors emissions generated and performance metrics during the execution o
 
 # Workloads
 
+PACT was evaluated by subjecting it to various workloads, including stress tests designed to pressure different hardware components. Additionally, state-of-the-art machine learning models from computer vision, natural language processing, and reinforcement learning were used to assess PACT's performance under real-life workload scenarios.
+
 ## Stress Tests
 ## Computer Vision Benchmarks
 ## Natural Language Processing Benchmarks
