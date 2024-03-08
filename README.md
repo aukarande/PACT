@@ -28,7 +28,7 @@ sys.path.append(os.path.join(parentDir, "src"))
 from trackerPACT import PACT
 ```
 
-## Estimate Carbon Emission
+## Collect Performance Counters and Power (W)
 
 ```python
 events_groups = [['MIGRATIONS'],['FAULTS'],['CACHE-MISSES'],['CYCLES']]
@@ -41,10 +41,8 @@ def your_function():
 - `measure_period`: Specify the sampling period (in seconds) to measure power.
 - `perf_measure_period`: Specify the sampling period (in seconds) to collect performance counter data.
 - `events_groups`: Specify the performance events to monitor during execution.
-- `tracker_file_name`: Specify the name of the file to store tracking data.
+- `tracker_file_name`: Specify the name of the file to store power and performance data.
 - `PSU`: Specify the power supply unit being used for measurement. Current support for 'Corsair_1500i' and 'NZXT_850'.
-
-PACT monitors emissions generated and performance metrics during the execution of your function.
 
 # Workloads
 
