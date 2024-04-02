@@ -4,6 +4,7 @@
 - [Quickstart ](#quickstart-)
     - [Installation ](#installation-)
     - [Estimate Carbon Emission ](#start-to-estimate-your-impact-)
+    - [Packages Required By PACT](#packages-required-by-pact-)
 - [Workloads ](#workloads-)
     - [Stress Tests ](#stress-tests-)
     - [Computer Vision Benchmarks ](#cv-bm-)
@@ -43,6 +44,13 @@ def your_function():
 - `events_groups`: Specify the performance events to monitor during execution.
 - `tracker_file_name`: Specify the name of the file to store power and performance data.
 - `PSU`: Specify the power supply unit being used for measurement. Current support for 'Corsair_1500i' and 'NZXT_850'.
+
+
+## Packages Required By PACT
+
+1) **liquidctl**: https://github.com/liquidctl/liquidctl.git
+2) **perfmon**: https://github.com/VitorRamos/performance_features.git
+3) **pyNVML**: https://pypi.org/project/pynvml/
 
 # Workloads
 
