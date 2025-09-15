@@ -1,5 +1,9 @@
-![banner](src/Banner1.jpg)
+[Link to GIT Repo](https://github.com/aukarande/PACT)
 
+# Authors: 
+Aditya Ukarande, Dr. Toygun Basaklar, Mingcong Cao, Dr. Umit Ogras
+
+![banner](src/Banner1.jpg)
 - [About PACT ](#about-codecarbon-)
 - [Quickstart ](#quickstart-)
     - [Installation ](#installation-)
